@@ -18,4 +18,4 @@ This will install the extension and create an example qmd file that you can use 
 
 ## Example
 
-Here is the source code for a minimal sample document: [example.qmd](example.qmd).
+*TODO*: Here is the source code for a minimal sample document: [example.qmd](example.qmd).

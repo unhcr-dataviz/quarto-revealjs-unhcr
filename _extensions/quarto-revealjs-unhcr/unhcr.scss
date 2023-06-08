@@ -1,0 +1,32 @@
+/*-- scss:defaults --*/
+// unhcr colors
+$unhcr-blue: #0072BC;
+$unhcr-navy: #18375F;
+$unhcr-green: #00B398;
+$unhcr-grey: #666666;
+$unhcr-red: #EF4A60;
+$unhcr-yellow: #FAEB00;
+
+// unhcr fonts import
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap');
+
+// fonts
+$font-family-sans-serif: "Lato", sans-serif !default;
+$font-family-monospace: "Source Code Pro", monospace !default;
+
+// colors
+$text-muted: $unhcr-grey !default;
+$link-color: $unhcr-blue !default;
+$link-color-hover: $body-color !default;
+
+// borders
+$border-radius: 0 !default;
+
+// headings
+$presentation-heading-color: $unhcr-blue !default;
+$presentation-h1-font-size: 2.2em !default;
+
+/*-- scss:rules --*/
+
+/* TODO: Provide custom CSS rules */
