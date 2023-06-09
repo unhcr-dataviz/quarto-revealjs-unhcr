@@ -23,6 +23,13 @@ $body-color: $unhcr-dark !default;
 $text-muted: $unhcr-grey !default;
 $link-color: $unhcr-blue !default;
 $link-color-hover: $unhcr-dark !default;
+$light-bg-link-color: $unhcr-blue !default;
+$dark-bg-link-color: $unhcr-yellow !default;
+
+/* TODO: code variables */
+// $light-bg-code-color: var(--quarto-hl-fu-color) !default;
+// $dark-bg-code-color: lighten($unhcr-red, 15%) !default;
+// $code-block-bg: $unhcr-blue;
 
 // borders
 $border-radius: 0 !default;
@@ -33,4 +40,56 @@ $presentation-h1-font-size: 2.2em !default;
 
 /*-- scss:rules --*/
 
-/* TODO: Provide custom CSS rules */
+// logo size
+.reveal img.slide-logo {
+  max-height: 3rem;
+}
+
+// logo dark bg
+.has-dark-background,
+.reveal:has(.inverse.present) {
+  img.slide-logo {
+    content: url("/_extensions/unhcr-dataviz/quarto-revealjs-unhcr/unhcr_logo_white.svg");
+  }
+}
+
+// title slide
+#title-slide {
+  color: $unhcr-yellow;
+
+  .subtitle {
+    font-size: 1.3em;
+  }
+}
+
+// section
+.reveal .title-slide {
+  text-align: center;
+}
+
+// typography
+.reveal .slide {
+  // list marker in blue
+  ul li::marker,
+  ol li::marker {
+    color: $unhcr-blue;
+  }
+
+  // blockquote
+  blockquote {
+    color: $unhcr-dark;
+    font-style: italic;
+    border-left-color: $unhcr-blue;
+  }
+}
+
+/* TODO: code */
+
+/* TODO: helpers */
+
+/* TODO: .inverse rules */
+// .reveal .inverse {
+//   .slide-background-content {
+//     background-color: $unhcr-blue;
+//   }
+// }
