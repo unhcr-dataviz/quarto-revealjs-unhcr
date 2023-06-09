@@ -1,24 +1,28 @@
 /*-- scss:defaults --*/
 // unhcr colors
-$unhcr-blue: #0072BC;
-$unhcr-navy: #18375F;
-$unhcr-green: #00B398;
+$unhcr-blue: #0072bc;
+$unhcr-navy: #18375f;
+$unhcr-green: #00b398;
 $unhcr-grey: #666666;
-$unhcr-red: #EF4A60;
-$unhcr-yellow: #FAEB00;
+$unhcr-red: #ef4a60;
+$unhcr-yellow: #faeb00;
+$unhcr-dark: #222222;
+$unhcr-light: #ffffff;
 
 // unhcr fonts import
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap");
 
 // fonts
 $font-family-sans-serif: "Lato", sans-serif !default;
 $font-family-monospace: "Source Code Pro", monospace !default;
 
 // colors
+$body-bg: $unhcr-light !default;
+$body-color: $unhcr-dark !default;
 $text-muted: $unhcr-grey !default;
 $link-color: $unhcr-blue !default;
-$link-color-hover: #222 !default;
+$link-color-hover: $unhcr-dark !default;
 
 // borders
 $border-radius: 0 !default;
