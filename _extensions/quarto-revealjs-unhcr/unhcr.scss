@@ -26,11 +26,6 @@ $link-color-hover: $unhcr-dark !default;
 $light-bg-link-color: $unhcr-blue !default;
 $dark-bg-link-color: $unhcr-yellow !default;
 
-/* TODO: code variables */
-// $light-bg-code-color: var(--quarto-hl-fu-color) !default;
-// $dark-bg-code-color: lighten($unhcr-red, 15%) !default;
-// $code-block-bg: $unhcr-blue;
-
 // borders
 $border-radius: 0 !default;
 
@@ -46,10 +41,24 @@ $presentation-h1-font-size: 2.2em !default;
 }
 
 // logo dark bg
-.has-dark-background,
-.reveal:has(.inverse.present) {
+.has-dark-background {
   img.slide-logo {
     content: url("/_extensions/unhcr-dataviz/quarto-revealjs-unhcr/unhcr_logo_white.svg");
+  }
+}
+
+// footer
+.reveal .footer {
+  border-top: lighten($unhcr-dark, 70) solid 2px;
+  height: 3.5rem;
+  p {
+    margin-top: 12px;
+  }
+}
+.has-dark-background {
+  .footer {
+    border-top-color: $unhcr-light;
+    color: $unhcr-light;
   }
 }
 
@@ -67,6 +76,12 @@ $presentation-h1-font-size: 2.2em !default;
   text-align: center;
 }
 
+.has-dark-background .title-slide {
+  p {
+    color: $unhcr-yellow;
+  }
+}
+
 // typography
 .reveal .slide {
   // list marker in blue
@@ -81,15 +96,81 @@ $presentation-h1-font-size: 2.2em !default;
     font-style: italic;
     border-left-color: $unhcr-blue;
   }
+
+  // code
+  p code {
+    color: $unhcr-red;
+  }
+
+  div.sourceCode {
+    margin-bottom: 12px !important;
+  }
 }
 
-/* TODO: code */
+// dark background
+.has-dark-background .slide {
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: $unhcr-yellow;
+  }
 
-/* TODO: helpers */
+  // list marker in blue
+  ul li::marker,
+  ol li::marker {
+    color: $unhcr-yellow;
+  }
 
-/* TODO: .inverse rules */
-// .reveal .inverse {
-//   .slide-background-content {
-//     background-color: $unhcr-blue;
-//   }
-// }
+  // blockquote
+  blockquote {
+    color: $unhcr-light;
+    border-left-color: $unhcr-yellow;
+  }
+
+  // code
+  p code {
+    color: lighten($unhcr-red, 15%);
+  }
+
+  // callout
+  .callout-title p {
+    color: $unhcr-dark;
+  }
+}
+
+// unhcr helpers
+// text color
+.text-blue {
+  color: $unhcr-blue;
+}
+
+.text-yellow {
+  color: $unhcr-yellow;
+}
+
+.text-grey {
+  color: $unhcr-grey;
+}
+
+// background color
+.bg-blue,
+.bg-yellow,
+.bg-grey {
+  padding: 0.05em 0.1em;
+  display: inline-block;
+  color: $unhcr-dark;
+}
+
+.bg-blue {
+  background-color: lighten($color: $unhcr-blue, $amount: 45);
+}
+
+.bg-yellow {
+  background-color: lighten($color: $unhcr-yellow, $amount: 30);
+}
+
+.bg-grey {
+  background-color: lighten($color: $unhcr-grey, $amount: 45);
+}
