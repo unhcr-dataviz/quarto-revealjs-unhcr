@@ -154,7 +154,7 @@ $presentation-h1-font-size: 2.2em !default;
   color: $unhcr-grey;
 }
 
-// background color
+// text background color
 .bg-blue,
 .bg-yellow,
 .bg-grey {
@@ -173,4 +173,9 @@ $presentation-h1-font-size: 2.2em !default;
 
 .bg-grey {
   background-color: lighten($color: $unhcr-grey, $amount: 45);
+}
+
+// slide background color
+.slide-blue {
+  background-color: $unhcr-blue !important;
 }

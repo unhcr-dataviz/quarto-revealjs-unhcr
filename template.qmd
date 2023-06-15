@@ -1,9 +1,10 @@
 ---
-title: Untitled
+title: UNHCR Quarto Theme
+subtitle: For revealjs
 format:
   quarto-revealjs-unhcr-revealjs: default
-author: Cedric Vidonne
-date: last-modified
+# author: Staff Member Name
+# date: last-modified
 ---
 
 ## Introduction
