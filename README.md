@@ -2,6 +2,8 @@
 
 A [Quarto](https://quarto.org/) extension to create [UNHCR branded](https://www.unhcr.org/brand) `reveal.js` presentations.
 
+![Screenshot of the UNHCR title slide for reveal.js presentation.](template.png)
+
 ## Installing
 
 To start a new presentation:
