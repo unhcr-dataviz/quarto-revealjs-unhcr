@@ -11,4 +11,4 @@ contributes:
         data-background-color: "#0072bc"
       slide-number: c
       show-slide-number: print
-      highlight-style: pygments
+      highlight-style: github

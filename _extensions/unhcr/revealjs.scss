@@ -22,9 +22,12 @@ $body-bg: $unhcr-light !default;
 $body-color: $unhcr-dark !default;
 $text-muted: $unhcr-grey !default;
 $link-color: $unhcr-blue !default;
-$link-color-hover: $unhcr-dark !default;
+$link-color-hover: $unhcr-blue !default;
 $light-bg-link-color: $unhcr-blue !default;
 $dark-bg-link-color: $unhcr-yellow !default;
+$code-color: $unhcr-red !default;
+$light-bg-code-color: $unhcr-red !default;
+$dark-bg-code-color: lighten($unhcr-red, 15%) !default;
 
 // borders
 $border-radius: 0 !default;
@@ -51,10 +54,12 @@ $presentation-h1-font-size: 2.2em !default;
 .reveal .footer {
   border-top: lighten($unhcr-dark, 70) solid 2px;
   height: 3.5rem;
+
   p {
     margin-top: 12px;
   }
 }
+
 .has-dark-background {
   .footer {
     border-top-color: $unhcr-light;
@@ -84,6 +89,14 @@ $presentation-h1-font-size: 2.2em !default;
 
 // typography
 .reveal .slide {
+
+  // link hover
+  a:hover {
+    text-decoration-line: underline;
+    text-decoration-thickness: 0.12rem;
+    text-underline-offset: 0.2rem;
+  }
+
   // list marker in blue
   ul li::marker,
   ol li::marker {
@@ -97,11 +110,7 @@ $presentation-h1-font-size: 2.2em !default;
     border-left-color: $unhcr-blue;
   }
 
-  // code
-  p code {
-    color: $unhcr-red;
-  }
-
+  // margin after code block
   div.sourceCode {
     margin-bottom: 12px !important;
   }
@@ -109,6 +118,7 @@ $presentation-h1-font-size: 2.2em !default;
 
 // dark background
 .has-dark-background .slide {
+
   h2,
   h3,
   h4,
@@ -127,11 +137,6 @@ $presentation-h1-font-size: 2.2em !default;
   blockquote {
     color: $unhcr-light;
     border-left-color: $unhcr-yellow;
-  }
-
-  // code
-  p code {
-    color: lighten($unhcr-red, 15%);
   }
 
   // callout
