@@ -2,8 +2,7 @@
 title: UNHCR Quarto Theme
 subtitle: For revealjs
 format: unhcr-revealjs
-# author: Staff Member Name
-# date: last-modified
+embed-resources: true
 ---
 
 ## Introduction
