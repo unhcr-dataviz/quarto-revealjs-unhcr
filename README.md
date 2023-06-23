@@ -17,3 +17,7 @@ This will install the extension and create an example qmd file that you can use 
 ## Documentation
 
 Read the [Quarto documentation on reveal.js format](https://quarto.org/docs/presentations/revealjs/)
+
+## Example
+
+Here is the [source code](template.qmd) and the [live example](https://unhcr-dataviz.github.io/quarto-revealjs-unhcr/#/title-slide) of the [template.qmd](template.qmd) file.
