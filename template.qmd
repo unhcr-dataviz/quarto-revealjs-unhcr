@@ -5,11 +5,315 @@ format: unhcr-revealjs
 embed-resources: true
 ---
 
-## Introduction
+## Presentation with Quarto
 
-*TODO* Create an example file that demonstrates the formatting and features of your format.
+- Quarto integrates with Reveal.js to create stunning slideshows.
+- Markdown syntax is used to structure and format content.
+- Craft a finished **UNHCR branded** presentation with this template.
+- Seamlessly weave together content and executable code.
+
+To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>.
+
+## Presentation title
+
+- YAML arguments define the content of the title slide.
+- Add arguments as needed
+
+```{yaml}
+#| echo: true
+#| eval: false
+
+---
+title: UNHCR Quarto Theme
+subtitle: For revealjs
+author: Cedric Vidonne
+institute: IPDA
+date: last-modified
+format: unhcr-revealjs
+---
+
+```
+
+## Basic slides
+
+- Each slide starts with a level 2 heading (`## Slide 1`). For example:
+
+```{markdown}
+#| echo: true
+#| eval: false
+
+## Slide 1
+
+Some content for slide 1
+
+## Slide 2
+
+Some content for slide 2
+```
+
+## Section slides
+
+- A section starts with a level 1 heading (`# Section 1`). For example:
+
+```{markdown}
+#| echo: true
+#| eval: false
+
+# Section 1
+
+Some content for section 1
+```
+
+# Section
+
+Example of a section slide
+
+# UNHCR section {.slide-blue}
+
+Add `{.slide-blue}` class to make it UNHCR blue
+
+## Lists
+
+- To add bullet points to a slide, use the Markdown list syntax.
+- Works the same way with numbered lists. For example:
+
+```{markdown}
+#| echo: true
+#| eval: false
+
+- Item 1
+    - Item 1.1
+    - Item 1.2
+- Item 2
+- Item 3
+```
+
+
+
+## Incremental list
+
+- By default the lists are **not** incremental.
+- Add the `{.incremental}` class, so each bullet will appear separately.
+
+```{markdown}
+#| echo: true
+#| eval: false
+
+::: {.incremental}
+- Item 1
+- Item 2
+:::
+```
+
+::: {.incremental}
+- This is the 1<sup>st</sup> incremental bullet.
+- And here the 2<sup>nd</sup>.
+:::
+
+::: {.aside}
+Include `incremental:true` in the YAML to set it globally.
+:::
+
+## Incremental content
+
+- Use `. . .` to separate content and turn it incremental.
+- Any content can be incremental. For example:
+
+```{markdown}
+#| echo: true
+#| eval: false
+
+This will appear first
+
+. . .
+
+And then that!
+```
+
+## UNHCR helpers
+
+**Text**
+
+- Use `{.text-blue}` to apply [UNHCR blue]{.text-blue} color
+- Use `{.text-grey}` for [lighter text]{.text-grey} color
+
+**Background**
+
+- Use `{.bg-blue}` for [light blue]{.bg-blue} background
+- Use `{.bg-grey}` for [light grey]{.bg-grey} background
+
+::: {.aside}
+
+For dark background slides use `{.text-yellow}` and `{.bg-yellow}` classes
+
+:::
+
+## Columns
+
+- To create columns, use a `div` container with class `{.columns}`, containing two or more `div` containers with class `{.column}` and a `width` attribute. For example:
+
+```{markdown}
+#| echo: true
+
+:::: {.columns}
+
+::: {.column width="40%"}
+Left column
+:::
+
+::: {.column width="60%"}
+Right column
+:::
+
+::::
+```
+
+## Images
+
+- To insert an image, use the Markdown image syntax. For example:
+
+```{markdown}
+#| echo: true
+![](path/to/image.jpg)
+```
+
+![](https://raw.githubusercontent.com/vidonne/unhcrdown/master/inst/resources/img/cover-example.jpg)
+
+## Code
+
+- To include code, use fenced code blocks with a language specifier. 
+- By default the `echo` parameter of code block is set to `false`, turn it to `true` to see the code and the result.
+
+```{markdown}
+#| echo: true
+
+\```{r}
+#| echo: true
+#| warning: false
+library(tidyverse)
+library(unhcrthemes)
+\```
+
+```
+
+
+
+## Plots
+
+- Use the [`{unhcrthemes}`](https://vidonne.github.io/unhcrthemes/) package to produce UNHCR branded plots directly in the presentation. For example: 
+
+```{r}
+#| label: idp-plot
+#| fig-align: center
+
+library(tidyverse)
+library(unhcrthemes)
+
+data(idp, package = "unhcrthemes")
+
+idp_total <- idp |>
+  group_by(year) |>
+  summarise(idp = sum(idp, na.rm = TRUE) / 1e6) |>
+  ungroup()
+
+ggplot(idp_total) +
+  geom_col(aes(x = year, y = idp),
+           fill = unhcr_pal(n = 1, "pal_blue"),
+           width = 0.8) +
+  labs(title = "Globalement IDP displacement | 2010 - 2019",
+       y = "Number of people (in million)",
+       caption = "Source: UNHCR Refugee Data Finder") +
+  scale_y_continuous(expand = expansion(c(0, 0.1))) +
+  scale_x_continuous(breaks = seq(2010, 2019, 1)) +
+  theme_unhcr(font_size = 18, grid = "Y", axis_title = "y")
+```
+
+## Tables
+
+- Use `knitr::kable()` function for simple table. For example:
+
+::: columns
+::: {.column width="55%"}
+
+```{r}
+#| label: kable-ex
+#| echo: true
+#| eval: false
+knitr::kable(head(idp_total)) 
+```
+
+:::
+
+::: {.column width="45%"}
+
+```{r}
+#| label: kable-ex
+#| eval: true
+```
+
+:::
+:::
+
+## More tables
+
+- Many packages can help you stylize tables, like `{gt}`, `{dt}` and more.
+- Use them to customize further the table design in your presentations.
+
+::: columns
+::: {.column width="50%"}
+
+```{r}
+#| label: gt-ex
+#| echo: true
+#| eval: false
+gt::gt(head(idp_total)) 
+```
+
+:::
+
+::: {.column width="50%"}
+
+```{r}
+#| label: gt-ex
+#| eval: true
+```
+
+:::
+:::
+
+## Speaker Notes:
+
+- You can add speaker notes to your slides that are only visible to the presenter during the presentation.
+- To add speaker notes, use the following syntax:
+
+```{markdown}
+#| echo: true
+
+## Slide with speaker notes
+
+Slide content
+
+::: {.notes}
+Speaker notes go here.
+:::
+
+```
+
+## Exporting into PDF
+
+- Use the function `pagedown::chrome_print()` to print the HTML version into a PDF.
+
+```{r}
+#| echo: true
+#| eval: false
+pagedown::chrome_print("path-to-file.html")
+```
 
 ## More Information
 
-You can learn more about controlling the appearance of RevealJS output here: <https://quarto.org/docs/presentations/revealjs/>
+You can learn more about controlling the appearance and layout of RevealJS output here: <https://quarto.org/docs/presentations/revealjs/>
+
+# Thank you {.slide-blue}
+
+Enjoy the template!
 
