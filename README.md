@@ -12,7 +12,7 @@ To start a new presentation:
 quarto use template unhcr-dataviz/quarto-revealjs-unhcr
 ```
 
-This will install the extension and create an example qmd file that you can use as a starting place for your article. _TODO_: Develop example on how to use it and specific CSS class.
+This will install the extension and create an example qmd file that you can use as a starting place for your presentation.
 
 ## Documentation
 

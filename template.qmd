@@ -301,13 +301,10 @@ Speaker notes go here.
 
 ## Exporting into PDF
 
-- Use the function `pagedown::chrome_print()` to print the HTML version into a PDF.
-
-```{r}
-#| echo: true
-#| eval: false
-pagedown::chrome_print("path-to-file.html")
-```
+- Toggle into Print View using the `E` key (or using the [Navigation Menu](https://quarto.org/docs/presentations/revealjs/presenting.html#navigation-menu)).
+- Open the in-browser print dialog (CTRL/CMD+P).
+- Change the destination setting to **Save as PDF**.
+- Find more info on the print to PDF settings [here](https://quarto.org/docs/presentations/revealjs/presenting.html#print-to-pdf).
 
 ## More Information
 
