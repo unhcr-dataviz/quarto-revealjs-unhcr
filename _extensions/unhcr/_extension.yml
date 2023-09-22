@@ -6,7 +6,7 @@ contributes:
   formats:
     revealjs:
       theme: [default, revealjs.scss]
-      logo: unhcr_logo_blue.svg
+      logo: unhcr-logo.svg
       title-slide-attributes:
         data-background-color: "#0072bc"
       slide-number: c
