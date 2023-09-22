@@ -209,23 +209,19 @@ library(unhcrthemes)
 library(tidyverse)
 library(unhcrthemes)
 
-data(idp, package = "unhcrthemes")
-
-idp_total <- idp |>
-  group_by(year) |>
-  summarise(idp = sum(idp, na.rm = TRUE) / 1e6) |>
-  ungroup()
-
-ggplot(idp_total) +
-  geom_col(aes(x = year, y = idp),
-           fill = unhcr_pal(n = 1, "pal_blue"),
-           width = 0.8) +
-  labs(title = "Globalement IDP displacement | 2010 - 2019",
-       y = "Number of people (in million)",
-       caption = "Source: UNHCR Refugee Data Finder") +
-  scale_y_continuous(expand = expansion(c(0, 0.1))) +
-  scale_x_continuous(breaks = seq(2010, 2019, 1)) +
-  theme_unhcr(font_size = 18, grid = "Y", axis_title = "y")
+dplyr::count(mpg, class) |>
+  dplyr::arrange(n) |>
+  dplyr::mutate(class = factor(class, levels = class)) |>
+  ggplot(aes(n, class)) +
+  geom_col(fill = unhcr_pal(n = 1, "pal_blue")) +
+  geom_text(aes(label = n), hjust = 0, nudge_x = 1) +
+  labs(
+    title = "Simple bar chart with labels using ggplot",
+    subtitle = "This plot shows the default style of theme_unhcr()",
+    caption = "Source: mtcars"
+  ) +
+  scale_x_continuous(expand = expansion(c(0, 0.1))) +
+  theme_unhcr(grid = FALSE, axis = "y", axis_title = FALSE, axis_text = "y")
 ```
 
 ## Tables
@@ -239,7 +235,7 @@ ggplot(idp_total) +
 #| label: kable-ex
 #| echo: true
 #| eval: false
-knitr::kable(head(idp_total)) 
+knitr::kable(head(mtcars)) 
 ```
 
 :::
@@ -266,7 +262,7 @@ knitr::kable(head(idp_total))
 #| label: gt-ex
 #| echo: true
 #| eval: false
-gt::gt(head(idp_total)) 
+gt::gt(head(mtcars)) 
 ```
 
 :::
