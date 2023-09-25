@@ -228,27 +228,12 @@ dplyr::count(mpg, class) |>
 
 - Use `knitr::kable()` function for simple table. For example:
 
-::: columns
-::: {.column width="55%"}
-
 ```{r}
 #| label: kable-ex
-#| echo: true
-#| eval: false
-knitr::kable(head(mtcars)) 
-```
-
-:::
-
-::: {.column width="45%"}
-
-```{r}
-#| label: kable-ex
+#| echo: false
 #| eval: true
+knitr::kable(head(select(mtcars, mpg, cyl, disp), n = 3)) 
 ```
-
-:::
-:::
 
 ## More tables
 
